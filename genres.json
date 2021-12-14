@@ -1,0 +1,47 @@
+[
+   {
+      "category": "HORROR",
+      "names": [
+         "Chucky",
+         "Resident Evil",
+         "Dawn of the dead",
+         "Zombie night"
+      ]
+   },
+   {
+      "category": "ROMANCE",
+      "names": [
+         "In the name of Love",
+         "First Kiss",
+         "Teenage Lovers"
+      ]
+   },
+   {
+      "category": "ACTION AND VIOLENCE",
+      "names": [
+         "Once upon a time in China",
+         "Fearless",
+         "Iron Fist",
+         "The One",
+         "Kiss of the Dragon"
+      ]
+   },
+   {
+      "category": "COMEDY",
+      "names": [
+         "Mr. Bean",
+         "Kalistus",
+         "Samspedy",
+         "Just for laughs"
+      ]
+   },
+   {
+      "category": "Cartoons",
+      "names": [
+         "Tom and Jerry",
+         "Batman",
+         "Spider man Miles Morales",
+         "Cat Woman"
+      ]
+   }
+]
