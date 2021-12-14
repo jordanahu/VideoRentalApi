@@ -3,7 +3,6 @@ module.exports = function (callback) {
     try {
       await callback(req, res);
     } catch (err) {
-      console.log("erorrorr", err.message);
       next(err.message);
     }
   };
