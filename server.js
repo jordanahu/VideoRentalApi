@@ -9,7 +9,7 @@ require("dotenv").config();
 mongoose.connect(process.env.URI)
 .then(()=>debug("Connected to database..."))
 .catch((error)=>debug(error));
-
+const handleErrors = require("./middlewares/handleErrors")
 const {handleGenres, handleHome, handleMovies, handleUsers} = require("./routes");
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -26,7 +26,9 @@ app.use(helmet());
 app.use("/", handleHome);
 app.use("/api/genres", handleGenres);
 app.use("/api/movies", handleMovies);
-app.use("/api/users", handleUsers)
+app.use("/api/users", handleUsers);
+
+app.use(handleErrors);
 
 
 const PORT = process.env.PORT || 3000

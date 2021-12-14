@@ -1,13 +1,17 @@
 const router = require("express").Router();
-const {registerUser, getUsers, deleteUserById, updateUserById, loginUser} = require("../controllers");
+const asyncWrapper = require("../middlewares/asyncWrapper");
+const {
+  registerUser,
+  getUsers,
+  deleteUserById,
+  updateUserById,
+  loginUser,
+} = require("../controllers");
 
-
-router.get("/", getUsers);
-router.post("/", registerUser);
-router.post("/login", loginUser);
-router.delete("/:userId", deleteUserById);
-router.patch("/:userId", updateUserById);
-
-
+router.get("/", asyncWrapper(getUsers));
+router.post("/", asyncWrapper(registerUser));
+router.post("/login", asyncWrapper(loginUser));
+router.delete("/:userId", asyncWrapper(deleteUserById));
+router.patch("/:userId", asyncWrapper(updateUserById));
 
 module.exports = router;

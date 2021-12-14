@@ -1,13 +1,15 @@
 const router = require("express").Router();
-const {getMovies, addMovie, getMovieById, updateMovieById} = require("../controllers");
+const asyncWrapper = require("../middlewares/asyncWrapper");
+const {
+  getMovies,
+  addMovie,
+  getMovieById,
+  updateMovieById,
+} = require("../controllers");
 
-
-router.get("/", getMovies);
-router.post("/:genreId", addMovie);
-router.get("/:movieId", getMovieById)
-router.patch("/:movieId", updateMovieById)
-
-
-
+router.get("/", asyncWrapper(getMovies));
+router.post("/:genreId", asyncWrapper(addMovie));
+router.get("/:movieId", asyncWrapper(getMovieById));
+router.patch("/:movieId", asyncWrapper(updateMovieById));
 
 module.exports = router;
