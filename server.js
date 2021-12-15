@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const debug = require("debug")("app:start-app");
 const mongoose = require("mongoose");
+const {logErrors} = require("./utils");
 require("dotenv").config();
 
 mongoose.connect(process.env.URI)
@@ -29,6 +30,9 @@ app.use("/api/movies", handleMovies);
 app.use("/api/users", handleUsers);
 
 app.use(handleErrors);
+process.on(("uncaughtException" || "unhandledRejection"), (error)=>{
+  logErrors(error.message, error)
+})
 
 
 const PORT = process.env.PORT || 3000

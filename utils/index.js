@@ -1,5 +1,8 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
+const fs = require("fs");
+const { Readable } = require("stream");
+const { promisify } = require("util");
 
 const genreSchema = Joi.object({
   category: Joi.string().required(),
@@ -54,9 +57,22 @@ function pick(obj, arr) {
 function validateUser(info, nameRequired = true) {
   return userSchema(nameRequired).validate(info);
 }
+
+async function logErrors(message, trace) {
+  let data = `{message:${message}, trace:${trace}}\n`;
+  let saveTo = "C:/Users/JORDAN AHU MAWULI/Desktop/videoRentalApi/error.log";
+
+  let exists = await promisify(fs.exists)(saveTo);
+  if (exists) return await promisify(fs.appendFile)(saveTo, data);
+
+  let infoStream = Readable.from([data]);
+  let errorFile = fs.createWriteStream(saveTo);
+  infoStream.pipe(errorFile);
+}
 module.exports = {
   validateGenre,
   validateMovie,
   validateUser,
   pick,
+  logErrors,
 };
