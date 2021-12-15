@@ -8,6 +8,7 @@ const connectToDb = require("./startup/db");
 const handleErrors = require("./middlewares/handleErrors");
 const processRoutes = require("./startup/routes");
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
