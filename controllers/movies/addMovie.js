@@ -4,6 +4,7 @@ const { Genre } = require("../../models/Genres");
 const Movie = require("../../models/Movies");
 
 module.exports = async function (req, res) {
+  
   let { genreId } = req.params;
   let { title, numberInStock, dailyRentalRate } = req.body;
   let { errors } = validateMovie({ title, numberInStock, dailyRentalRate });

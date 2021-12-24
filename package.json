@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "set DEBUG=app:start-app & nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll --verbose --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
     "debug": "^4.3.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -21,5 +22,9 @@
     "mongoose": "^6.0.14",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12"
+  },
+  "devDependencies": {
+    "jest": "^27.4.5",
+    "supertest": "^6.1.6"
   }
 }

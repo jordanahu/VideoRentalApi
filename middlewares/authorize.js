@@ -9,6 +9,6 @@ module.exports = async function (req, res, next) {
     req.user = payload;
     next();
   } catch (err) {
-    res.status(404).send(err.message);
+    res.status(400).send(err.message);
   }
 };
