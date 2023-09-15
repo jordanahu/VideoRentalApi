@@ -1,3 +1,3 @@
-# imaginaryVideoRentalApi
+# VideoRentalApi
 
-MVC architecture in practice! An imaginary video rental CRUD API
+MVC architecture in practice! A video rental CRUD API
